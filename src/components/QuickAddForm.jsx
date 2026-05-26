@@ -1,5 +1,5 @@
 import { Plus, Save } from 'lucide-react';
-import { splitList, parseObjectText } from '../lib/format.js';
+import { parseObjectText } from '../lib/format.js';
 import { useState } from 'react';
 import TagInput from './TagInput.jsx';
 
@@ -22,7 +22,6 @@ export default function QuickAddForm({ locations, onCreate, tags }) {
       location_id: form.get('location_id'),
       condition: form.get('condition'),
       salvage_status: form.get('salvage_status'),
-      photos: splitList(form.get('photos')),
       notes: form.get('notes')
     });
     event.currentTarget.reset();
@@ -92,10 +91,6 @@ export default function QuickAddForm({ locations, onCreate, tags }) {
       <label>
         Notes
         <textarea name="notes" rows="3" placeholder="Where it came from, what is uncertain, test ideas" />
-      </label>
-      <label>
-        Photos
-        <input name="photos" placeholder="Local paths or URLs, comma separated" />
       </label>
       <button className="primary" type="submit">
         <Save size={16} />

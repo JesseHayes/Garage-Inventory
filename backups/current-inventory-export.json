@@ -1,7 +1,8 @@
 {
-  "exported_at": "2026-05-20T02:33:03.684Z",
+  "exported_at": "2026-05-26T19:21:48.444Z",
   "app": "garage-lab-inventory",
-  "schema_version": 2,
+  "storage_mode": "legacy-sqlite-export",
+  "schema_version": 3,
   "inventory_items": [
     {
       "id": "item_353ed3c3",
@@ -23,7 +24,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -48,7 +48,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -82,7 +81,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -113,7 +111,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -138,7 +135,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -168,7 +164,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "low",
@@ -203,7 +198,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -228,7 +222,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -266,7 +259,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -293,7 +285,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -328,7 +319,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -372,7 +362,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -409,7 +398,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -449,7 +437,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -487,7 +474,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -518,7 +504,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -549,7 +534,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -580,7 +564,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -615,7 +598,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -644,7 +626,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -674,7 +655,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -697,7 +677,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "unknown",
@@ -728,7 +707,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -759,7 +737,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -790,7 +767,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -815,7 +791,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -845,7 +820,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "Used for High Temp Reactions",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -874,7 +848,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -910,7 +883,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -946,7 +918,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -977,7 +948,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1003,7 +973,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1039,7 +1008,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1076,7 +1044,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1105,7 +1072,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1133,7 +1099,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1168,7 +1133,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1205,7 +1169,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1232,7 +1195,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1259,7 +1221,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1282,7 +1243,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "unknown",
@@ -1315,7 +1275,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "Amethyst jewelry material + high grade magnetite",
-      "photos": [],
       "source_origin": "Amethyst Cove",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1345,7 +1304,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1370,7 +1328,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1397,7 +1354,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1422,7 +1378,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1450,7 +1405,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1477,7 +1431,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "50, 100, 250, 400, 600mL",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1504,7 +1457,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1534,7 +1486,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1562,7 +1513,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1589,7 +1539,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1614,7 +1563,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1639,7 +1587,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1672,7 +1619,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1704,7 +1650,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "Used to make rings",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1731,7 +1676,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1757,7 +1701,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1782,7 +1725,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1808,7 +1750,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1834,7 +1775,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1861,7 +1801,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1889,7 +1828,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1917,7 +1855,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1946,7 +1883,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -1975,7 +1911,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -2002,7 +1937,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -2027,7 +1961,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -2052,7 +1985,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "unknown",
@@ -2084,7 +2016,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "Collected for silicon thermite",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -2118,7 +2049,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "Used for Making Aluminum Powder",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -2143,7 +2073,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -2171,7 +2100,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -2201,7 +2129,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -2230,7 +2157,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -2256,7 +2182,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "unknown",
@@ -2290,7 +2215,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "Could use to make sulfur",
-      "photos": [],
       "source_origin": "Copper Mountain",
       "tested_status": "not tested",
       "confidence_level": "low",
@@ -2322,7 +2246,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -2348,7 +2271,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -2375,7 +2297,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -2400,7 +2321,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -2428,7 +2348,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -2456,7 +2375,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -2485,7 +2403,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -2518,7 +2435,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -2548,7 +2464,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "Forgotten Rebuild Project",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "low",
@@ -2575,7 +2490,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -2601,7 +2515,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "Used as a Casting Refractory",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -2631,7 +2544,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "unknown",
@@ -2672,7 +2584,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "lead copper zinc sulphides",
-      "photos": [],
       "source_origin": "Dunbrack",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -2699,7 +2610,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -2724,7 +2634,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -2750,7 +2659,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "To Be Salvaged",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -2778,7 +2686,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -2805,7 +2712,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -2832,7 +2738,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -2858,7 +2763,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -2886,7 +2790,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -2914,7 +2817,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -2941,7 +2843,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -2971,7 +2872,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -3003,7 +2903,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -3031,7 +2930,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -3056,7 +2954,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -3085,7 +2982,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -3110,7 +3006,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -3136,7 +3031,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "unknown",
@@ -3164,7 +3058,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -3189,7 +3082,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -3216,7 +3108,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -3242,7 +3133,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -3268,7 +3158,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "unknown",
@@ -3300,7 +3189,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "Might contain cassiterite",
-      "photos": [],
       "source_origin": "New Ross",
       "tested_status": "not tested",
       "confidence_level": "low",
@@ -3331,7 +3219,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "New Ross",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -3358,7 +3245,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -3384,7 +3270,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -3436,7 +3321,6 @@
       "condition": "Good",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "Value Village Printer",
       "tested_status": "not tested",
       "confidence_level": "unknown",
@@ -3465,7 +3349,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -3493,7 +3376,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -3522,7 +3404,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -3548,7 +3429,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -3576,7 +3456,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -3602,7 +3481,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -3630,7 +3508,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -3656,7 +3533,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "Casting",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -3683,7 +3559,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "60, 80, 120, 220 grit",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -3710,7 +3585,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -3737,7 +3611,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -3767,7 +3640,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -3794,7 +3666,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -3821,7 +3692,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -3852,7 +3722,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "unknown",
@@ -3888,7 +3757,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "Smithfield",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -3918,7 +3786,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -3945,7 +3812,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -3973,7 +3839,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -4003,7 +3868,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -4035,7 +3899,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -4062,7 +3925,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -4088,7 +3950,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -4117,7 +3978,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -4143,7 +4003,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -4170,7 +4029,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "5, 10mL",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -4195,7 +4053,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -4223,7 +4080,6 @@
       "condition": "dirty",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -4250,7 +4106,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -4278,7 +4133,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -4306,7 +4160,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -4337,7 +4190,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "Vancouver",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -4365,7 +4217,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -4392,7 +4243,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "unknown",
@@ -4423,7 +4273,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "Unidentified high density",
-      "photos": [],
       "source_origin": "Walton",
       "tested_status": "not tested",
       "confidence_level": "low",
@@ -4450,7 +4299,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -4478,7 +4326,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -4505,7 +4352,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -4533,7 +4379,6 @@
       "condition": "unknown",
       "location_id": null,
       "notes": "",
-      "photos": [],
       "source_origin": "",
       "tested_status": "not tested",
       "confidence_level": "medium",
@@ -4562,7 +4407,7 @@
       "normalized_name": "fabrication",
       "use_count": 32,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_10f25a4b",
@@ -4570,7 +4415,7 @@
       "normalized_name": "metal",
       "use_count": 32,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_459b82ba",
@@ -4578,7 +4423,7 @@
       "normalized_name": "raw-stock",
       "use_count": 32,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_45833d6f",
@@ -4586,7 +4431,7 @@
       "normalized_name": "jewelry",
       "use_count": 26,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_2be1b5eb",
@@ -4594,7 +4439,7 @@
       "normalized_name": "tool",
       "use_count": 22,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_a07aaf13",
@@ -4602,7 +4447,7 @@
       "normalized_name": "chemical",
       "use_count": 20,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_cec182ca",
@@ -4610,7 +4455,7 @@
       "normalized_name": "casting",
       "use_count": 17,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_e1da8722",
@@ -4618,7 +4463,7 @@
       "normalized_name": "chemistry",
       "use_count": 17,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_aca295d1",
@@ -4626,7 +4471,7 @@
       "normalized_name": "component",
       "use_count": 16,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_6bf19705",
@@ -4634,7 +4479,7 @@
       "normalized_name": "salvage",
       "use_count": 16,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_859d704e",
@@ -4642,7 +4487,7 @@
       "normalized_name": "woodworking",
       "use_count": 15,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_34195e03",
@@ -4650,7 +4495,7 @@
       "normalized_name": "electronics",
       "use_count": 14,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_5c204394",
@@ -4658,7 +4503,7 @@
       "normalized_name": "foundry",
       "use_count": 14,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_3bc4f4c8",
@@ -4666,7 +4511,7 @@
       "normalized_name": "labware",
       "use_count": 14,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_c5a4124d",
@@ -4674,7 +4519,7 @@
       "normalized_name": "machining",
       "use_count": 13,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_b6528101",
@@ -4682,7 +4527,7 @@
       "normalized_name": "steel",
       "use_count": 13,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_19f26414",
@@ -4690,7 +4535,7 @@
       "normalized_name": "workshop",
       "use_count": 12,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_efb4353a",
@@ -4698,7 +4543,7 @@
       "normalized_name": "assay",
       "use_count": 10,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_0573a54d",
@@ -4706,7 +4551,7 @@
       "normalized_name": "geology",
       "use_count": 10,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_f861ffa0",
@@ -4714,7 +4559,7 @@
       "normalized_name": "glassware",
       "use_count": 10,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_38799062",
@@ -4722,7 +4567,7 @@
       "normalized_name": "metallurgy",
       "use_count": 10,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_8ef4c1dd",
@@ -4730,7 +4575,7 @@
       "normalized_name": "mineral-sample",
       "use_count": 10,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_c622e400",
@@ -4738,7 +4583,7 @@
       "normalized_name": "nonmetal",
       "use_count": 10,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_1d3085e3",
@@ -4746,7 +4591,7 @@
       "normalized_name": "ore",
       "use_count": 10,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_31ad4e24",
@@ -4754,7 +4599,7 @@
       "normalized_name": "polymer",
       "use_count": 10,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_de640e26",
@@ -4762,7 +4607,7 @@
       "normalized_name": "pipe",
       "use_count": 8,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_ff3e056b",
@@ -4770,7 +4615,7 @@
       "normalized_name": "sulfur",
       "use_count": 7,
       "created_at": "2026-05-20T01:39:53.352Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_9644ca22",
@@ -4778,7 +4623,7 @@
       "normalized_name": "aluminum",
       "use_count": 6,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_4b8eacaa",
@@ -4786,7 +4631,7 @@
       "normalized_name": "copper",
       "use_count": 6,
       "created_at": "2026-05-20T01:39:53.352Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_cdb10ad9",
@@ -4794,7 +4639,7 @@
       "normalized_name": "electromechanical",
       "use_count": 6,
       "created_at": "2026-05-19T17:11:00.217Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_8fa8e4a5",
@@ -4802,7 +4647,7 @@
       "normalized_name": "lead",
       "use_count": 6,
       "created_at": "2026-05-20T01:39:53.352Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_e1d1a576",
@@ -4810,7 +4655,7 @@
       "normalized_name": "motor",
       "use_count": 5,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_a489191a",
@@ -4818,7 +4663,7 @@
       "normalized_name": "plate",
       "use_count": 5,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_25ef2591",
@@ -4826,7 +4671,7 @@
       "normalized_name": "sheet",
       "use_count": 5,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_017be514",
@@ -4834,7 +4679,7 @@
       "normalized_name": "brass",
       "use_count": 4,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_fed934e8",
@@ -4842,7 +4687,7 @@
       "normalized_name": "copper-alloy",
       "use_count": 4,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_cac9266d",
@@ -4850,7 +4695,7 @@
       "normalized_name": "flammable",
       "use_count": 4,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_0c61ee62",
@@ -4858,7 +4703,7 @@
       "normalized_name": "ore-processing",
       "use_count": 4,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_08f697d2",
@@ -4866,7 +4711,7 @@
       "normalized_name": "prospecting",
       "use_count": 4,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_8fc34c27",
@@ -4874,7 +4719,7 @@
       "normalized_name": "salvaged",
       "use_count": 4,
       "created_at": "2026-05-19T17:11:00.217Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_ffa5baa6",
@@ -4882,7 +4727,7 @@
       "normalized_name": "solvent",
       "use_count": 4,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_0d5644b1",
@@ -4890,7 +4735,7 @@
       "normalized_name": "tooling",
       "use_count": 4,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_b622a8ee",
@@ -4898,7 +4743,7 @@
       "normalized_name": "zinc",
       "use_count": 4,
       "created_at": "2026-05-20T01:39:53.352Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_11b028ba",
@@ -4906,7 +4751,7 @@
       "normalized_name": "adhesive",
       "use_count": 3,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_df66556e",
@@ -4914,7 +4759,7 @@
       "normalized_name": "control",
       "use_count": 3,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_eef254fa",
@@ -4922,7 +4767,7 @@
       "normalized_name": "dense-metal",
       "use_count": 3,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_26941726",
@@ -4930,7 +4775,7 @@
       "normalized_name": "electrical",
       "use_count": 3,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_5c47494e",
@@ -4938,7 +4783,7 @@
       "normalized_name": "fluid-control",
       "use_count": 3,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_3c149d06",
@@ -4946,7 +4791,7 @@
       "normalized_name": "high-temperature",
       "use_count": 3,
       "created_at": "2026-05-19T17:11:00.266Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_59df7baa",
@@ -4954,7 +4799,7 @@
       "normalized_name": "iron",
       "use_count": 3,
       "created_at": "2026-05-20T01:39:53.352Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_6872b2a0",
@@ -4962,7 +4807,7 @@
       "normalized_name": "lab-equipment",
       "use_count": 3,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_f22107c2",
@@ -4970,7 +4815,7 @@
       "normalized_name": "lab-supply",
       "use_count": 3,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_4cd36646",
@@ -4978,7 +4823,7 @@
       "normalized_name": "ppe",
       "use_count": 3,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_4d014ae8",
@@ -4986,7 +4831,7 @@
       "normalized_name": "pvc",
       "use_count": 3,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_1a01677c",
@@ -4994,7 +4839,7 @@
       "normalized_name": "rod",
       "use_count": 3,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_dee5ecbb",
@@ -5002,7 +4847,7 @@
       "normalized_name": "safety",
       "use_count": 3,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_f139f500",
@@ -5010,7 +4855,7 @@
       "normalized_name": "shaft",
       "use_count": 3,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_96e3638e",
@@ -5018,7 +4863,7 @@
       "normalized_name": "solenoid",
       "use_count": 3,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_8dc88acd",
@@ -5026,7 +4871,7 @@
       "normalized_name": "switch",
       "use_count": 3,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_a3cb32cf",
@@ -5034,7 +4879,7 @@
       "normalized_name": "tin",
       "use_count": 3,
       "created_at": "2026-05-20T01:39:53.352Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_167f5498",
@@ -5042,7 +4887,7 @@
       "normalized_name": "valve",
       "use_count": 3,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_6b444014",
@@ -5050,7 +4895,7 @@
       "normalized_name": "water",
       "use_count": 3,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_d6911c46",
@@ -5058,7 +4903,7 @@
       "normalized_name": "wire",
       "use_count": 3,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_565682bd",
@@ -5066,7 +4911,7 @@
       "normalized_name": "acid",
       "use_count": 2,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_cb1b8020",
@@ -5074,7 +4919,7 @@
       "normalized_name": "conductive",
       "use_count": 2,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_84846515",
@@ -5082,7 +4927,7 @@
       "normalized_name": "corrosive",
       "use_count": 2,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_b2df6593",
@@ -5090,7 +4935,7 @@
       "normalized_name": "heat-resistant",
       "use_count": 2,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_968a99c4",
@@ -5098,7 +4943,7 @@
       "normalized_name": "heating",
       "use_count": 2,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_3427c710",
@@ -5106,7 +4951,7 @@
       "normalized_name": "inlay",
       "use_count": 2,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_ae9251d4",
@@ -5114,7 +4959,7 @@
       "normalized_name": "pigment",
       "use_count": 2,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_e0d837aa",
@@ -5122,7 +4967,7 @@
       "normalized_name": "plastic",
       "use_count": 2,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_3e32ee4d",
@@ -5130,7 +4975,7 @@
       "normalized_name": "quartz",
       "use_count": 2,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_10f1c22f",
@@ -5138,7 +4983,7 @@
       "normalized_name": "resin-casting",
       "use_count": 2,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_78a5c3dd",
@@ -5146,7 +4991,7 @@
       "normalized_name": "resistive-heater",
       "use_count": 2,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_5ed9f1ea",
@@ -5154,7 +4999,7 @@
       "normalized_name": "silica",
       "use_count": 2,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_4f2aa8f5",
@@ -5162,7 +5007,7 @@
       "normalized_name": "silicon-thermite",
       "use_count": 2,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_6c98b274",
@@ -5170,7 +5015,7 @@
       "normalized_name": "sulfur-source",
       "use_count": 2,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_b036512f",
@@ -5178,7 +5023,7 @@
       "normalized_name": "sulphide",
       "use_count": 2,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_20d26e84",
@@ -5186,7 +5031,7 @@
       "normalized_name": "thermal",
       "use_count": 2,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_a65e18e1",
@@ -5194,7 +5039,7 @@
       "normalized_name": "unidentified",
       "use_count": 2,
       "created_at": "2026-05-20T01:42:44.406Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_693a61e4",
@@ -5202,7 +5047,7 @@
       "normalized_name": "xylene",
       "use_count": 2,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_96faae04",
@@ -5210,7 +5055,7 @@
       "normalized_name": "ac-power",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_6759d505",
@@ -5218,7 +5063,7 @@
       "normalized_name": "amethyst",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_f34b9a30",
@@ -5226,7 +5071,7 @@
       "normalized_name": "arsenic",
       "use_count": 1,
       "created_at": "2026-05-20T01:39:53.352Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_2d6298bd",
@@ -5234,7 +5079,7 @@
       "normalized_name": "carbon",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_a980406b",
@@ -5242,7 +5087,7 @@
       "normalized_name": "cassiterite",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_d37b26ab",
@@ -5250,7 +5095,7 @@
       "normalized_name": "cast-aluminum",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_8fa2f331",
@@ -5258,7 +5103,7 @@
       "normalized_name": "ceramic",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_5bd08fe5",
@@ -5266,7 +5111,7 @@
       "normalized_name": "chalcopyrite",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_b98458d5",
@@ -5274,7 +5119,7 @@
       "normalized_name": "chemical-resistant",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_fb107ce5",
@@ -5282,7 +5127,7 @@
       "normalized_name": "coal",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_82704496",
@@ -5290,7 +5135,7 @@
       "normalized_name": "copper-ore",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_20e61d47",
@@ -5298,7 +5143,7 @@
       "normalized_name": "dc-motor",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_d2487bdf",
@@ -5306,7 +5151,7 @@
       "normalized_name": "gasket",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_4625c615",
@@ -5314,7 +5159,7 @@
       "normalized_name": "gear-driven",
       "use_count": 1,
       "created_at": "2026-05-19T17:11:00.217Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_496bc17e",
@@ -5322,7 +5167,7 @@
       "normalized_name": "granite",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_5290394c",
@@ -5330,7 +5175,7 @@
       "normalized_name": "high-density",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_480792d9",
@@ -5338,7 +5183,7 @@
       "normalized_name": "hss",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_1f45d586",
@@ -5346,7 +5191,7 @@
       "normalized_name": "incomplete",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_56b38b02",
@@ -5354,7 +5199,7 @@
       "normalized_name": "iron-oxide",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_ae16a8b2",
@@ -5362,7 +5207,7 @@
       "normalized_name": "lubricant",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_9ad4aa5d",
@@ -5370,7 +5215,7 @@
       "normalized_name": "magnetic",
       "use_count": 1,
       "created_at": "2026-05-20T01:48:59.096Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_a7627383",
@@ -5378,7 +5223,7 @@
       "normalized_name": "magnetite",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_7f32bc8c",
@@ -5386,7 +5231,7 @@
       "normalized_name": "manganese-dioxide",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_c7a1788d",
@@ -5394,7 +5239,7 @@
       "normalized_name": "molybdenite",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_9e7cb735",
@@ -5402,7 +5247,7 @@
       "normalized_name": "molybdenum",
       "use_count": 1,
       "created_at": "2026-05-20T01:41:18.722Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_a9cb074a",
@@ -5410,7 +5255,7 @@
       "normalized_name": "needs-cleaning",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_4749ad51",
@@ -5418,7 +5263,7 @@
       "normalized_name": "nickel",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_bc45b7a0",
@@ -5426,7 +5271,7 @@
       "normalized_name": "oxidizer",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_c9cfa6d8",
@@ -5434,7 +5279,7 @@
       "normalized_name": "plating",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_300eaef3",
@@ -5442,7 +5287,7 @@
       "normalized_name": "power-electronics",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_9176ab8a",
@@ -5450,7 +5295,7 @@
       "normalized_name": "precision-motor",
       "use_count": 1,
       "created_at": "2026-05-19T17:11:00.217Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_050cc14a",
@@ -5458,7 +5303,7 @@
       "normalized_name": "project",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_5330409a",
@@ -5466,7 +5311,7 @@
       "normalized_name": "robotics",
       "use_count": 1,
       "created_at": "2026-05-19T17:11:00.217Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_f0fe1d08",
@@ -5474,7 +5319,7 @@
       "normalized_name": "seal",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_8214404f",
@@ -5482,7 +5327,7 @@
       "normalized_name": "sealant",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_b2342ef9",
@@ -5490,7 +5335,7 @@
       "normalized_name": "silicon",
       "use_count": 1,
       "created_at": "2026-05-20T01:44:30.211Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_45347896",
@@ -5498,7 +5343,7 @@
       "normalized_name": "silicone",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_708db7df",
@@ -5506,7 +5351,7 @@
       "normalized_name": "small-motor",
       "use_count": 1,
       "created_at": "2026-05-19T17:11:00.217Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_51c58e8c",
@@ -5514,7 +5359,7 @@
       "normalized_name": "soldering",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_8244f24f",
@@ -5522,7 +5367,7 @@
       "normalized_name": "stepper",
       "use_count": 1,
       "created_at": "2026-05-19T17:11:00.217Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_713981c2",
@@ -5530,7 +5375,7 @@
       "normalized_name": "sulfuric-acid",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_e33b961a",
@@ -5538,7 +5383,7 @@
       "normalized_name": "tin-potential",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_ef96fa03",
@@ -5546,7 +5391,7 @@
       "normalized_name": "to-identify",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_0b088098",
@@ -5554,7 +5399,7 @@
       "normalized_name": "wax",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_02c194fe",
@@ -5562,7 +5407,7 @@
       "normalized_name": "wrought-aluminum",
       "use_count": 1,
       "created_at": "2026-05-20T02:19:26.414Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     },
     {
       "id": "tag_01ad5c84",
@@ -5570,10 +5415,26 @@
       "normalized_name": "high-temp",
       "use_count": 0,
       "created_at": "2026-05-19T17:11:00.277Z",
-      "updated_at": "2026-05-20T02:24:25.363Z"
+      "updated_at": "2026-05-23T12:25:45.060Z"
     }
   ],
   "capability_upgrades": [
+    {
+      "id": "cap_f1aa825b",
+      "name": "Ball Mill",
+      "estimated_cost": null,
+      "capabilities_unlocked": [
+        "Aluminum Powder",
+        "Polishing",
+        "Powdering"
+      ],
+      "priority": "medium",
+      "status": "desired",
+      "notes": "",
+      "created_at": "2026-05-23T12:25:45.017Z",
+      "updated_at": "2026-05-23T12:25:45.017Z",
+      "related_item_ids": []
+    },
     {
       "id": "cap_6e4369ec",
       "name": "Fume Hood",
@@ -5588,6 +5449,21 @@
       "notes": "",
       "created_at": "2026-05-19T16:27:22.430Z",
       "updated_at": "2026-05-20T01:29:35.218Z",
+      "related_item_ids": []
+    },
+    {
+      "id": "cap_50605600",
+      "name": "Hot Air Station",
+      "estimated_cost": 50,
+      "capabilities_unlocked": [
+        "Reflow Soldering",
+        "PCB Salvaging"
+      ],
+      "priority": "medium",
+      "status": "desired",
+      "notes": "",
+      "created_at": "2026-05-23T12:25:00.509Z",
+      "updated_at": "2026-05-23T12:25:00.509Z",
       "related_item_ids": []
     }
   ]

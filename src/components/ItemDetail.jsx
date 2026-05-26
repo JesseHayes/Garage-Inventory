@@ -21,7 +21,6 @@ function draftFromItem(item) {
     condition: item?.condition || 'unknown',
     location_id: item?.location_id || '',
     notes: item?.notes || '',
-    photos: listToText(item?.photos),
     source_origin: item?.source_origin || '',
     tested_status: item?.tested_status || 'not tested',
     confidence_level: item?.confidence_level || 'unknown',
@@ -74,7 +73,6 @@ export default function ItemDetail({ item, locations, tags, onSave, onDelete }) 
         condition: draft.condition,
         location_id: draft.location_id,
         notes: draft.notes,
-        photos: splitList(draft.photos),
         source_origin: draft.source_origin,
         tested_status: draft.tested_status,
         confidence_level: draft.confidence_level,
@@ -189,10 +187,6 @@ export default function ItemDetail({ item, locations, tags, onSave, onDelete }) 
           <label>
             Source / Origin
             <input value={draft.source_origin} onChange={(event) => setField('source_origin', event.target.value)} placeholder="washer motor, roadside scrap, creek clay" />
-          </label>
-          <label>
-            Photos
-            <input value={draft.photos} onChange={(event) => setField('photos', event.target.value)} placeholder="Local paths or URLs, comma separated" />
           </label>
           <label>
             Notes

@@ -19,7 +19,9 @@ export default function ImportExport({ onExport, onImport }) {
     try {
       const payload = JSON.parse(jsonText);
       const result = await onImport(payload);
-      setMessage(`Imported ${result.imported.inventory_items} items, ${result.imported.locations} locations, ${result.imported.capability_upgrades} upgrades.`);
+      setMessage(
+        `Imported ${result.imported.inventory_items} items, ${result.imported.locations} locations, ${result.imported.capability_upgrades} upgrades, ${result.imported.tags || 0} tags.`
+      );
     } catch (error) {
       setMessage(error.message);
     }

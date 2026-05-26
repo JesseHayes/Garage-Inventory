@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { Boxes, Database, Hammer, Map, Search, Tags, Wrench } from 'lucide-react';
+import { Boxes, Database, Hammer, LogOut, Map, Search, Tags, Wrench } from 'lucide-react';
 import { api } from './lib/api.js';
 import { itemHaystack } from './lib/format.js';
 import QuickAddForm from './components/QuickAddForm.jsx';
@@ -10,6 +10,7 @@ import CapabilityTracker from './components/CapabilityTracker.jsx';
 import SearchView from './components/SearchView.jsx';
 import ImportExport from './components/ImportExport.jsx';
 import TagBrowser from './components/TagBrowser.jsx';
+import AuthGate from './components/AuthGate.jsx';
 
 const pages = [
   { id: 'inventory', label: 'Inventory', icon: Boxes },
@@ -30,6 +31,8 @@ export default function App() {
   const [selectedCapabilityId, setSelectedCapabilityId] = useState('');
   const [query, setQuery] = useState('');
   const [error, setError] = useState('');
+  const [session, setSession] = useState(() => api.auth.session());
+  const [queueStatus, setQueueStatus] = useState(() => api.queueStatus());
 
   const loadAll = useCallback(async () => {
     try {
@@ -47,8 +50,22 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    loadAll();
-  }, [loadAll]);
+    if (session) loadAll();
+  }, [loadAll, session]);
+
+  useEffect(() => {
+    function updateQueue() {
+      setQueueStatus(api.queueStatus());
+    }
+    window.addEventListener('online', updateQueue);
+    window.addEventListener('offline', updateQueue);
+    window.addEventListener('garage-sync-queue', updateQueue);
+    return () => {
+      window.removeEventListener('online', updateQueue);
+      window.removeEventListener('offline', updateQueue);
+      window.removeEventListener('garage-sync-queue', updateQueue);
+    };
+  }, []);
 
   const filteredItems = useMemo(() => {
     const terms = query
@@ -122,6 +139,33 @@ export default function App() {
     return result;
   }
 
+  async function login(email, password) {
+    const nextSession = await api.auth.login(email, password);
+    setSession(nextSession);
+    await api.flushQueue();
+    await loadAll();
+  }
+
+  async function logout() {
+    await api.auth.logout();
+    setSession(null);
+    setItems([]);
+    setLocations([]);
+    setCapabilities([]);
+    setTags([]);
+  }
+
+  async function syncNow() {
+    const result = await api.flushQueue();
+    setQueueStatus(api.queueStatus());
+    await loadAll();
+    setError(result.remaining ? `${result.remaining} changes still waiting to sync.` : '');
+  }
+
+  if (!session) {
+    return <AuthGate onLogin={login} />;
+  }
+
   return (
     <div className="app-shell">
       <header>
@@ -140,6 +184,16 @@ export default function App() {
             </button>
           ))}
         </nav>
+        <div className="session-tools">
+          <button className={queueStatus.online ? 'sync-chip' : 'sync-chip offline'} type="button" onClick={syncNow}>
+            {queueStatus.online ? 'Online' : 'Offline'}
+            {queueStatus.pending ? ` · ${queueStatus.pending} queued` : ''}
+          </button>
+          <button className="secondary" type="button" onClick={logout}>
+            <LogOut size={16} />
+            Sign Out
+          </button>
+        </div>
       </header>
 
       {error && <div className="error-bar">{error}</div>}

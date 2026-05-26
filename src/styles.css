@@ -87,6 +87,13 @@ nav {
   flex-wrap: wrap;
 }
 
+.session-tools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
 nav button,
 .primary,
 .secondary,
@@ -118,6 +125,21 @@ nav button.active,
   background: #39413b;
 }
 
+.sync-chip {
+  min-height: 34px;
+  border-radius: 999px;
+  padding: 7px 10px;
+  background: #26372b;
+  color: #dbe8d4;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.sync-chip.offline {
+  background: #3b2320;
+  color: #ffd5cf;
+}
+
 .danger {
   background: #8f4239;
 }
@@ -138,6 +160,19 @@ nav button.active,
 
 main {
   padding: 16px;
+}
+
+.auth-layout {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+
+.auth-panel {
+  width: min(420px, 100%);
+  display: grid;
+  gap: 12px;
 }
 
 .inventory-layout {
@@ -541,6 +576,12 @@ td span {
   nav {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+  }
+
+  .session-tools {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     width: 100%;
   }
 

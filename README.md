@@ -1,164 +1,99 @@
 # Garage Lab Inventory
 
-Local-first inventory and workshop capability tracker for a garage laboratory or workshop.
+Mobile-first GitHub Pages PWA for workshop inventory, storage tracking, tags, and capability planning.
 
-## Start On This PC
+The app now uses Supabase PostgreSQL as the persistent database. GitHub Pages hosts only the frontend; data is never seeded or overwritten during deployment.
 
-Install dependencies once:
+## Features
+
+- Supabase Auth login
+- PostgreSQL persistence through Supabase REST
+- Row Level Security policies
+- Offline-capable PWA shell
+- Offline write queue with manual/automatic sync
+- JSON import/export backups
+- Mobile-first responsive interface
+- No image upload support
+
+## Local Development
+
+Create `.env` from `.env.example`:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+Set:
+
+```text
+VITE_SUPABASE_URL=https://fgtjzegcihspilzuzsbu.supabase.co
+VITE_SUPABASE_ANON_KEY=your anon public key
+```
+
+Install and run:
 
 ```powershell
 npm.cmd install --cache .\.npm-cache
+npm.cmd run dev
 ```
 
-Build the app:
+## Supabase Setup
 
-```powershell
-npm.cmd run build
+1. In Supabase, open the SQL editor.
+2. Run `supabase/migrations/001_initial_schema.sql`.
+3. Create your user in Supabase Auth.
+4. Copy your Auth user ID.
+5. Run:
+
+```sql
+insert into public.app_authorized_users (user_id)
+values ('YOUR_AUTH_USER_ID')
+on conflict (user_id) do nothing;
 ```
 
-Start the API and web app:
+RLS blocks all inventory access unless the signed-in user is listed in `app_authorized_users`.
 
-```powershell
-npm.cmd run lan
-```
+Recommended: disable public sign-ups in Supabase Auth after creating your account.
 
-Open the app on this PC:
+## GitHub Pages Deployment
+
+In the GitHub repository, add repository variables:
 
 ```text
-http://127.0.0.1:4173
+VITE_SUPABASE_URL
+VITE_SUPABASE_ANON_KEY
 ```
 
-## Use From A Phone On The Same Wi-Fi
-
-1. Start the app with:
-
-```powershell
-npm.cmd run lan
-```
-
-2. Find this PC's local network IP:
-
-```powershell
-npm.cmd run ip
-```
-
-Look for an address like `192.168.x.x`, `10.x.x.x`, or `172.x.x.x`.
-
-3. On your phone, connect to the same Wi-Fi network.
-
-4. In the phone browser, open:
+Values:
 
 ```text
-http://YOUR-PC-IP:4173
+VITE_SUPABASE_URL=https://fgtjzegcihspilzuzsbu.supabase.co
+VITE_SUPABASE_ANON_KEY=<your anon public key>
 ```
 
-Example:
+Enable Pages with GitHub Actions as the source, then push to `main`. The workflow in `.github/workflows/pages.yml` builds and deploys the PWA.
+
+Deployments do not run SQL migrations and do not import JSON, so they will not overwrite Supabase data.
+
+## Migrating Current Inventory
+
+A one-time export of the previous SQLite inventory is saved at:
 
 ```text
-http://192.168.1.25:4173
+backups/current-inventory-export.json
 ```
 
-The API runs on port `3107`, and the web app runs on port `4173`. If Windows Firewall asks, allow Node.js on private networks.
+After Supabase Auth and RLS are configured:
 
-## Access Online
+1. Open the deployed app.
+2. Sign in.
+3. Go to JSON.
+4. Paste/import the backup JSON.
 
-For internet access, use the single-server mode. This serves both the web app and API from port `3107`.
+The import writes to Supabase using your authenticated account.
 
-Set a username and password first:
+## Offline Behavior
 
-```powershell
-$env:GARAGE_AUTH_USER="garage"
-$env:GARAGE_AUTH_PASSWORD="choose-a-long-password"
-```
+The PWA caches the app shell for offline loading. Reads use the latest cached data when offline. Creates, edits, and deletes are queued locally and sync to Supabase when the device is online again.
 
-Build and start the online-ready server:
-
-```powershell
-npm.cmd run online
-```
-
-Open it locally:
-
-```text
-http://127.0.0.1:3107
-```
-
-To reach it from outside your home network, expose port `3107` using one of these methods:
-
-- A tunnel service that forwards a public HTTPS URL to `http://localhost:3107`
-- Router port forwarding from an external port to this PC on port `3107`
-- A self-hosted reverse proxy/VPN if you already use one
-
-Tunnel services are usually the lowest-friction option because they do not require router changes. Router port forwarding works, but only use it with a strong password and ideally behind HTTPS.
-
-If Windows Firewall asks, allow Node.js on private networks. For internet exposure, you may also need to allow inbound traffic for the tunnel tool or forwarded port.
-
-## GitHub Pages Version
-
-GitHub Pages can host the app without a running server, but it cannot run SQLite. The Pages build uses browser storage instead:
-
-- The current SQLite data is exported into `public/seed-data.json` during build.
-- The first time the Pages app opens, it copies that seed data into the browser.
-- Edits stay in that browser's local storage.
-- Use JSON Export/Import to back up or move data between devices.
-
-Build the Pages version locally:
-
-```powershell
-npm.cmd run build:pages
-```
-
-Preview it:
-
-```powershell
-npm.cmd run preview
-```
-
-To publish on GitHub:
-
-1. Push this project to a GitHub repository.
-2. In the repository settings, enable GitHub Pages with GitHub Actions as the source.
-3. Push to `main`.
-4. The workflow at `.github/workflows/pages.yml` will build and publish the app.
-
-Important: GitHub Pages is public unless your GitHub plan/repo settings support private Pages. Do not rely on it for secret or hazardous information. Keep regular JSON exports as backups.
-
-## Data Storage
-
-The SQLite database is stored locally:
-
-```text
-data/garage-inventory.sqlite
-```
-
-JSON export/import is available inside the app for backups and for copy-pasting structured inventory data into ChatGPT.
-
-## Tag System
-
-Tags remain user-defined and flexible. The app tracks every used inventory tag in a lightweight `tags` registry with:
-
-- normalized names for duplicate prevention
-- use counts
-- autocomplete suggestions
-- a searchable tag browser
-- clickable tags for inventory filtering
-
-The app nudges reuse, but it does not hardcode tag categories.
-
-## Attribute Format
-
-Attributes can be typed quickly:
-
-```text
-shaft: 7.5 mm, voltage: 12 V, rpm: unknown
-```
-
-Numeric values are stored in structured form:
-
-```json
-{
-  "shaft": { "value": 7.5, "unit": "mm" }
-}
-```
-
-Plain text remains plain text when it cannot be safely interpreted as a number.
+Keep regular JSON exports as backups, especially after working offline.
