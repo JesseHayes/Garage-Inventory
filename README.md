@@ -96,4 +96,4 @@ The import writes to Supabase using your authenticated account.
 
 The PWA caches the app shell for offline loading. Reads use the latest cached data when offline. Creates, edits, and deletes are queued locally and sync to Supabase when the device is online again.
 
-Keep regular JSON exports as backups, especially after working offline.
+Keep regular JSON exports as backups, especially after working offline.'
