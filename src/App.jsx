@@ -77,7 +77,7 @@ export default function App() {
   }, []);
 
   const categories = useMemo(() => {
-    const counts = new Map();
+    const counts = new window.Map();
     for (const item of items) {
       const category = item.category || 'Uncategorized';
       counts.set(category, (counts.get(category) || 0) + 1);
