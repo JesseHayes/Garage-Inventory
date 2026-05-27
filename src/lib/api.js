@@ -29,6 +29,7 @@ function readCache() {
     locations: [],
     tags: [],
     capabilities: [],
+    projects: [],
     ...readJson(CACHE_KEY, {})
   };
 }
@@ -127,15 +128,16 @@ function refreshTagCache(cache) {
 
 function itemPayload(body, existing = {}) {
   const now = nowIso();
+  const quantity = body.quantity === '' || body.quantity == null ? null : Number(body.quantity);
   return {
     id: existing.id || body.id || makeId('item'),
     name: body.name?.trim() || 'Unknown object',
-    base_type: body.base_type || 'unknown',
-    category: body.category || '',
+    category: body.category || body.base_type || 'Uncategorized',
     tags: cleanTags(body.tags || []),
     attributes: body.attributes || {},
-    quantity: Number(body.quantity ?? 1),
+    quantity,
     units: body.units || 'each',
+    in_stock: body.in_stock ?? (quantity == null ? true : quantity > 0),
     dimensions: body.dimensions || {},
     material_composition: body.material_composition || [],
     condition: body.condition || 'unknown',
@@ -146,6 +148,21 @@ function itemPayload(body, existing = {}) {
     confidence_level: body.confidence_level || 'unknown',
     salvage_status: body.salvage_status || 'intake',
     date_added: body.date_added || existing.date_added || now.slice(0, 10),
+    created_at: existing.created_at || now,
+    updated_at: now
+  };
+}
+
+function projectPayload(body, existing = {}) {
+  const now = nowIso();
+  return {
+    id: existing.id || body.id || makeId('proj'),
+    name: body.name?.trim() || 'Unnamed project',
+    description: body.description || '',
+    related_item_ids: body.related_item_ids || [],
+    related_tags: cleanTags(body.related_tags || []),
+    state: body.state || 'Conceived',
+    notes: body.notes || '',
     created_at: existing.created_at || now,
     updated_at: now
   };
@@ -219,17 +236,19 @@ async function tryOnline(action, offlineAction) {
 }
 
 async function loadAllOnline() {
-  const [items, locations, tags, capabilities] = await Promise.all([
+  const [items, locations, tags, capabilities, projects] = await Promise.all([
     fetchAll('inventory_items'),
     fetchAll('locations', 'name.asc'),
     fetchAll('tags', 'use_count.desc'),
-    fetchAll('capability_upgrades')
+    fetchAll('capability_upgrades'),
+    fetchAll('projects')
   ]);
   const cache = {
     items: items || [],
     locations: locations || [],
     tags: tags || [],
-    capabilities: capabilities || []
+    capabilities: capabilities || [],
+    projects: projects || []
   };
   writeCache(cache);
   return cache;
@@ -256,6 +275,22 @@ async function flushQueue() {
   writeQueue(remaining);
   if (flushed) await loadAllOnline();
   return { flushed, remaining: remaining.length };
+}
+
+function cacheSnapshot() {
+  const cache = readCache();
+  refreshTagCache(cache);
+  writeCache(cache);
+  return {
+    items: withLocationPaths(cache.items, cache.locations).sort((a, b) => (b.updated_at || '').localeCompare(a.updated_at || '')),
+    locations: (() => {
+      const paths = locationPaths(cache.locations);
+      return [...cache.locations].sort((a, b) => a.name.localeCompare(b.name)).map((location) => ({ ...location, path: paths[location.id] }));
+    })(),
+    tags: cache.tags,
+    capabilities: [...cache.capabilities].sort((a, b) => (b.updated_at || '').localeCompare(a.updated_at || '')),
+    projects: [...(cache.projects || [])].sort((a, b) => (b.updated_at || '').localeCompare(a.updated_at || ''))
+  };
 }
 
 function upsertCache(collection, row) {
@@ -286,7 +321,6 @@ async function upsert(table, collection, row) {
         headers: { Prefer: 'resolution=merge-duplicates,return=representation' },
         body: row
       });
-      await loadAllOnline();
       return result?.[0] || row;
     },
     () => {
@@ -306,16 +340,21 @@ async function syncTagsFromCache() {
   const cache = readCache();
   refreshTagCache(cache);
   writeCache(cache);
-  for (const tag of cache.tags) {
-    await upsert('tags', 'tags', {
+  if (!navigator.onLine || !readSession()?.access_token || !cache.tags.length) return;
+  const now = nowIso();
+  await supabaseFetch('tags', {
+    method: 'POST',
+    query: '?on_conflict=id',
+    headers: { Prefer: 'resolution=merge-duplicates,return=minimal' },
+    body: cache.tags.map((tag) => ({
       id: tag.id || `tag_${tag.normalized_name}`,
       name: tag.name,
       normalized_name: tag.normalized_name,
       use_count: tag.use_count,
-      created_at: tag.created_at || nowIso(),
-      updated_at: nowIso()
-    });
-  }
+      created_at: tag.created_at || now,
+      updated_at: now
+    }))
+  });
 }
 
 async function remove(table, collection, id) {
@@ -323,7 +362,6 @@ async function remove(table, collection, id) {
   return tryOnline(
     async () => {
       await supabaseFetch(table, { method: 'DELETE', query: `?id=eq.${encodeURIComponent(id)}` });
-      await loadAllOnline();
       return null;
     },
     () => {
@@ -341,30 +379,31 @@ export const api = {
   auth: authApi,
   queueStatus: () => ({ pending: readQueue().length, online: navigator.onLine }),
   flushQueue,
+  async loadAll() {
+    await tryOnline(loadAllOnline, () => readCache());
+    return cacheSnapshot();
+  },
   async items() {
-    const cache = await tryOnline(loadAllOnline, () => readCache());
-    return withLocationPaths(cache.items, cache.locations).sort((a, b) => (b.updated_at || '').localeCompare(a.updated_at || ''));
+    return (await this.loadAll()).items;
   },
   async createItem(payload) {
     const item = await upsert('inventory_items', 'items', itemPayload(payload));
-    await syncTagsFromCache();
+    syncTagsFromCache().catch(() => {});
     return item;
   },
   async updateItem(id, payload) {
     const existing = readCache().items.find((item) => item.id === id) || {};
     const item = await upsert('inventory_items', 'items', itemPayload({ ...existing, ...payload, id }, existing));
-    await syncTagsFromCache();
+    syncTagsFromCache().catch(() => {});
     return item;
   },
   async deleteItem(id) {
     const result = await remove('inventory_items', 'items', id);
-    await syncTagsFromCache();
+    syncTagsFromCache().catch(() => {});
     return result;
   },
   async locations() {
-    const cache = await tryOnline(loadAllOnline, () => readCache());
-    const paths = locationPaths(cache.locations);
-    return [...cache.locations].sort((a, b) => a.name.localeCompare(b.name)).map((location) => ({ ...location, path: paths[location.id] }));
+    return (await this.loadAll()).locations;
   },
   async createLocation(payload) {
     return upsert('locations', 'locations', locationPayload(payload));
@@ -373,8 +412,7 @@ export const api = {
     return remove('locations', 'locations', id);
   },
   async capabilities() {
-    const cache = await tryOnline(loadAllOnline, () => readCache());
-    return cache.capabilities.sort((a, b) => (b.updated_at || '').localeCompare(a.updated_at || ''));
+    return (await this.loadAll()).capabilities;
   },
   async createCapability(payload) {
     return upsert('capability_upgrades', 'capabilities', capabilityPayload(payload));
@@ -387,10 +425,20 @@ export const api = {
     return remove('capability_upgrades', 'capabilities', id);
   },
   async tags() {
-    const cache = await tryOnline(loadAllOnline, () => readCache());
-    refreshTagCache(cache);
-    writeCache(cache);
-    return cache.tags;
+    return (await this.loadAll()).tags;
+  },
+  async projects() {
+    return (await this.loadAll()).projects;
+  },
+  async createProject(payload) {
+    return upsert('projects', 'projects', projectPayload(payload));
+  },
+  async updateProject(id, payload) {
+    const existing = readCache().projects.find((project) => project.id === id) || {};
+    return upsert('projects', 'projects', projectPayload({ ...existing, ...payload, id }, existing));
+  },
+  async deleteProject(id) {
+    return remove('projects', 'projects', id);
   },
   async createTag(payload) {
     const now = nowIso();
@@ -418,26 +466,30 @@ export const api = {
       inventory_items: withLocationPaths(cache.items, cache.locations),
       locations: cache.locations,
       tags: cache.tags,
-      capability_upgrades: cache.capabilities
+      capability_upgrades: cache.capabilities,
+      projects: cache.projects || []
     };
   },
   async importAll(payload) {
     const items = payload.inventory_items || [];
     const locations = payload.locations || [];
     const capabilities = payload.capability_upgrades || [];
+    const projects = payload.projects || [];
     const tags = payload.tags || [];
-    const cache = { items, locations, capabilities, tags };
+    const cache = { items, locations, capabilities, projects, tags };
     refreshTagCache(cache);
     writeCache(cache);
     for (const location of locations) await upsert('locations', 'locations', locationPayload(location, location));
     for (const item of items) await upsert('inventory_items', 'items', itemPayload(item, item));
     for (const capability of capabilities) await upsert('capability_upgrades', 'capabilities', capabilityPayload(capability, capability));
+    for (const project of projects) await upsert('projects', 'projects', projectPayload(project, project));
     for (const tag of cache.tags) await upsert('tags', 'tags', tag);
     return {
       imported: {
         inventory_items: items.length,
         locations: locations.length,
         capability_upgrades: capabilities.length,
+        projects: projects.length,
         tags: cache.tags.length
       }
     };

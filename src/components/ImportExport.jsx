@@ -20,7 +20,7 @@ export default function ImportExport({ onExport, onImport }) {
       const payload = JSON.parse(jsonText);
       const result = await onImport(payload);
       setMessage(
-        `Imported ${result.imported.inventory_items} items, ${result.imported.locations} locations, ${result.imported.capability_upgrades} upgrades, ${result.imported.tags || 0} tags.`
+        `Imported ${result.imported.inventory_items} items, ${result.imported.locations} locations, ${result.imported.capability_upgrades} upgrades, ${result.imported.projects || 0} projects, ${result.imported.tags || 0} tags.`
       );
     } catch (error) {
       setMessage(error.message);

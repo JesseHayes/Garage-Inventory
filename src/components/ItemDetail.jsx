@@ -1,7 +1,8 @@
 import { Save, Trash2 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { listToText, objectToText, parseObjectText, splitList } from '../lib/format.js';
-import TagInput from './TagInput.jsx';
+import TagDropdown from './TagDropdown.jsx';
+import SearchableSelect from './SearchableSelect.jsx';
 
 const salvageStatuses = ['intake', 'to disassemble', 'to identify', 'to test', 'processed', 'stored', 'scrap'];
 const testedStatuses = ['not tested', 'tested', 'partially tested', 'unsafe', 'unknown'];
@@ -10,12 +11,12 @@ const confidenceLevels = ['unknown', 'low', 'medium', 'high'];
 function draftFromItem(item) {
   return {
     name: item?.name || '',
-    base_type: item?.base_type || 'unknown',
     category: item?.category || '',
     tags: item?.tags || [],
     attributes: objectToText(item?.attributes),
-    quantity: item?.quantity ?? 1,
+    quantity: item?.quantity ?? '',
     units: item?.units || 'each',
+    in_stock: item?.in_stock ?? true,
     dimensions: objectToText(item?.dimensions),
     material_composition: listToText(item?.material_composition),
     condition: item?.condition || 'unknown',
@@ -28,7 +29,7 @@ function draftFromItem(item) {
   };
 }
 
-export default function ItemDetail({ item, locations, tags, onSave, onDelete }) {
+export default function ItemDetail({ item, locations, tags, categories, onSave, onDelete, onClose }) {
   const [draft, setDraft] = useState(draftFromItem(item));
   const [message, setMessage] = useState('');
   const [isSaving, setIsSaving] = useState(false);
@@ -62,12 +63,12 @@ export default function ItemDetail({ item, locations, tags, onSave, onDelete }) 
     try {
       await onSave(item.id, {
         name: draft.name,
-        base_type: draft.base_type,
         category: draft.category,
         tags: draft.tags,
         attributes: parseObjectText(draft.attributes),
         quantity: draft.quantity,
         units: draft.units,
+        in_stock: draft.in_stock,
         dimensions: parseObjectText(draft.dimensions),
         material_composition: splitList(draft.material_composition),
         condition: draft.condition,
@@ -88,7 +89,10 @@ export default function ItemDetail({ item, locations, tags, onSave, onDelete }) 
 
   return (
     <aside className="panel detail-panel">
-      <h2>Item Detail</h2>
+      <div className="panel-head">
+        <h2>Item Detail</h2>
+        {onClose && <button className="secondary mobile-only" type="button" onClick={onClose}>Close</button>}
+      </div>
       <form onSubmit={submit}>
         <details open>
           <summary>Identity</summary>
@@ -96,17 +100,8 @@ export default function ItemDetail({ item, locations, tags, onSave, onDelete }) 
             Name
             <input value={draft.name} onChange={(event) => setField('name', event.target.value)} />
           </label>
-          <div className="two-col">
-            <label>
-              Base Type
-              <input value={draft.base_type} onChange={(event) => setField('base_type', event.target.value)} />
-            </label>
-            <label>
-              Category
-              <input value={draft.category} onChange={(event) => setField('category', event.target.value)} />
-            </label>
-          </div>
-          <TagInput value={draft.tags} onChange={(value) => setField('tags', value)} tags={tags} />
+          <SearchableSelect label="Category" value={draft.category} onChange={(value) => setField('category', value)} options={categories} />
+          <TagDropdown value={draft.tags} onChange={(value) => setField('tags', value)} tags={tags} />
         </details>
 
         <details open>
@@ -126,13 +121,17 @@ export default function ItemDetail({ item, locations, tags, onSave, onDelete }) 
           <div className="two-col compact">
             <label>
               Quantity
-              <input value={draft.quantity} type="number" step="any" onChange={(event) => setField('quantity', event.target.value)} />
+              <input value={draft.quantity} type="number" step="any" placeholder="Optional" onChange={(event) => setField('quantity', event.target.value)} />
             </label>
             <label>
               Units
               <input value={draft.units} onChange={(event) => setField('units', event.target.value)} />
             </label>
           </div>
+          <label className="toggle-row">
+            <input type="checkbox" checked={draft.in_stock} onChange={(event) => setField('in_stock', event.target.checked)} />
+            In Stock
+          </label>
         </details>
 
         <details open>

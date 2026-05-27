@@ -79,8 +79,8 @@ export function objectToText(value) {
 export function itemHaystack(item) {
   return [
     item.name,
-    item.base_type,
     item.category,
+    item.in_stock ? 'in stock' : 'out of stock',
     item.condition,
     item.location_path,
     item.notes,

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { Boxes, Database, Hammer, LogOut, Map, Search, Tags, Wrench } from 'lucide-react';
+import { Boxes, Database, FolderKanban, Hammer, LogOut, Map, Search, Tags, Wrench } from 'lucide-react';
 import { api } from './lib/api.js';
 import { itemHaystack } from './lib/format.js';
 import QuickAddForm from './components/QuickAddForm.jsx';
@@ -11,6 +11,8 @@ import SearchView from './components/SearchView.jsx';
 import ImportExport from './components/ImportExport.jsx';
 import TagBrowser from './components/TagBrowser.jsx';
 import AuthGate from './components/AuthGate.jsx';
+import CategoryOverview from './components/CategoryOverview.jsx';
+import ProjectsTracker from './components/ProjectsTracker.jsx';
 
 const pages = [
   { id: 'inventory', label: 'Inventory', icon: Boxes },
@@ -18,6 +20,7 @@ const pages = [
   { id: 'tags', label: 'Tags', icon: Tags },
   { id: 'storage', label: 'Storage', icon: Map },
   { id: 'capabilities', label: 'Capabilities', icon: Hammer },
+  { id: 'projects', label: 'Projects', icon: FolderKanban },
   { id: 'export', label: 'JSON', icon: Database }
 ];
 
@@ -26,9 +29,13 @@ export default function App() {
   const [items, setItems] = useState([]);
   const [locations, setLocations] = useState([]);
   const [capabilities, setCapabilities] = useState([]);
+  const [projects, setProjects] = useState([]);
   const [tags, setTags] = useState([]);
   const [selectedId, setSelectedId] = useState('');
   const [selectedCapabilityId, setSelectedCapabilityId] = useState('');
+  const [selectedProjectId, setSelectedProjectId] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [mobileDetailOpen, setMobileDetailOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [error, setError] = useState('');
   const [session, setSession] = useState(() => api.auth.session());
@@ -36,13 +43,15 @@ export default function App() {
 
   const loadAll = useCallback(async () => {
     try {
-      const [nextItems, nextLocations, nextCapabilities, nextTags] = await Promise.all([api.items(), api.locations(), api.capabilities(), api.tags()]);
-      setItems(nextItems);
-      setLocations(nextLocations);
-      setCapabilities(nextCapabilities);
-      setTags(nextTags);
-      setSelectedId((current) => current || nextItems[0]?.id || '');
-      setSelectedCapabilityId((current) => current || nextCapabilities[0]?.id || '');
+      const snapshot = await api.loadAll();
+      setItems(snapshot.items);
+      setLocations(snapshot.locations);
+      setCapabilities(snapshot.capabilities);
+      setProjects(snapshot.projects);
+      setTags(snapshot.tags);
+      setSelectedId((current) => current || snapshot.items[0]?.id || '');
+      setSelectedCapabilityId((current) => current || snapshot.capabilities[0]?.id || '');
+      setSelectedProjectId((current) => current || snapshot.projects[0]?.id || '');
       setError('');
     } catch (err) {
       setError(err.message);
@@ -67,70 +76,105 @@ export default function App() {
     };
   }, []);
 
+  const categories = useMemo(() => {
+    const counts = new Map();
+    for (const item of items) {
+      const category = item.category || 'Uncategorized';
+      counts.set(category, (counts.get(category) || 0) + 1);
+    }
+    return Array.from(counts.entries())
+      .map(([name, count]) => ({ name, count }))
+      .sort((a, b) => a.name.localeCompare(b.name));
+  }, [items]);
+
+  const categoryNames = useMemo(() => categories.map((category) => category.name), [categories]);
+
   const filteredItems = useMemo(() => {
+    const categoryScoped = selectedCategory ? items.filter((item) => (item.category || 'Uncategorized') === selectedCategory) : items;
     const terms = query
       .toLowerCase()
       .split(/\s+/)
       .map((term) => term.trim())
       .filter(Boolean);
-    if (!terms.length) return items;
-    return items.filter((item) => {
+    if (!terms.length) return categoryScoped;
+    return categoryScoped.filter((item) => {
       const haystack = itemHaystack(item);
       return terms.every((term) => haystack.includes(term));
     });
-  }, [items, query]);
+  }, [items, query, selectedCategory]);
 
   const selectedItem = items.find((item) => item.id === selectedId);
 
   async function createItem(payload) {
     const item = await api.createItem(payload);
-    await loadAll();
+    setItems((current) => [item, ...current.filter((existing) => existing.id !== item.id)]);
     setSelectedId(item.id);
+    setSelectedCategory(item.category || 'Uncategorized');
+    setMobileDetailOpen(true);
   }
 
   async function updateItem(id, payload) {
-    await api.updateItem(id, payload);
-    await loadAll();
+    const item = await api.updateItem(id, payload);
+    setItems((current) => current.map((existing) => (existing.id === id ? { ...existing, ...item } : existing)));
     setSelectedId(id);
   }
 
   async function deleteItem(id) {
     await api.deleteItem(id);
-    await loadAll();
+    setItems((current) => current.filter((item) => item.id !== id));
     setSelectedId('');
+    setMobileDetailOpen(false);
   }
 
   async function createLocation(payload) {
-    await api.createLocation(payload);
-    await loadAll();
+    const location = await api.createLocation(payload);
+    setLocations((current) => [...current, location]);
   }
 
   async function deleteLocation(id) {
     await api.deleteLocation(id);
-    await loadAll();
+    setLocations((current) => current.filter((location) => location.id !== id));
   }
 
   async function createCapability(payload) {
     const created = await api.createCapability(payload);
-    await loadAll();
+    setCapabilities((current) => [created, ...current.filter((capability) => capability.id !== created.id)]);
     setSelectedCapabilityId(created.id);
     return created;
   }
 
   async function updateCapability(id, payload) {
-    await api.updateCapability(id, payload);
-    await loadAll();
+    const updated = await api.updateCapability(id, payload);
+    setCapabilities((current) => current.map((capability) => (capability.id === id ? { ...capability, ...updated } : capability)));
   }
 
   async function deleteCapability(id) {
     await api.deleteCapability(id);
-    await loadAll();
+    setCapabilities((current) => current.filter((capability) => capability.id !== id));
     setSelectedCapabilityId('');
   }
 
   async function createTag(name) {
-    await api.createTag({ name });
-    await loadAll();
+    const tag = await api.createTag({ name });
+    setTags((current) => [tag, ...current.filter((existing) => existing.normalized_name !== tag.normalized_name)]);
+  }
+
+  async function createProject(payload) {
+    const created = await api.createProject(payload);
+    setProjects((current) => [created, ...current.filter((project) => project.id !== created.id)]);
+    setSelectedProjectId(created.id);
+    return created;
+  }
+
+  async function updateProject(id, payload) {
+    const updated = await api.updateProject(id, payload);
+    setProjects((current) => current.map((project) => (project.id === id ? { ...project, ...updated } : project)));
+  }
+
+  async function deleteProject(id) {
+    await api.deleteProject(id);
+    setProjects((current) => current.filter((project) => project.id !== id));
+    setSelectedProjectId('');
   }
 
   async function importAll(payload) {
@@ -152,6 +196,7 @@ export default function App() {
     setItems([]);
     setLocations([]);
     setCapabilities([]);
+    setProjects([]);
     setTags([]);
   }
 
@@ -185,9 +230,19 @@ export default function App() {
           ))}
         </nav>
         <div className="session-tools">
-          <button className={queueStatus.online ? 'sync-chip' : 'sync-chip offline'} type="button" onClick={syncNow}>
-            {queueStatus.online ? 'Online' : 'Offline'}
-            {queueStatus.pending ? ` · ${queueStatus.pending} queued` : ''}
+          <button
+            className={queueStatus.online ? 'sync-chip' : 'sync-chip offline'}
+            type="button"
+            onClick={syncNow}
+            title={
+              queueStatus.pending
+                ? `${queueStatus.pending} local change${queueStatus.pending === 1 ? '' : 's'} waiting to sync with Supabase.`
+                : queueStatus.online
+                  ? 'All local changes are synced with Supabase.'
+                  : 'Offline. New edits will be queued on this device.'
+            }
+          >
+            {queueStatus.pending ? `${queueStatus.pending} pending sync` : queueStatus.online ? 'Synced' : 'Offline'}
           </button>
           <button className="secondary" type="button" onClick={logout}>
             <LogOut size={16} />
@@ -200,15 +255,41 @@ export default function App() {
 
       {page === 'inventory' && (
         <main className="inventory-layout">
-          <QuickAddForm locations={locations} tags={tags} onCreate={createItem} />
-          <InventoryList items={filteredItems} selectedId={selectedId} onSelect={setSelectedId} query={query} onQuery={setQuery} onTagClick={setQuery} />
-          <ItemDetail item={selectedItem} locations={locations} tags={tags} onSave={updateItem} onDelete={deleteItem} />
+          <QuickAddForm locations={locations} tags={tags} categories={categoryNames} onCreate={createItem} />
+          {!selectedCategory ? (
+            <CategoryOverview categories={categories} onSelect={setSelectedCategory} />
+          ) : (
+            <InventoryList
+              items={filteredItems}
+              selectedId={selectedId}
+              onSelect={(id) => {
+                setSelectedId(id);
+                setMobileDetailOpen(true);
+              }}
+              query={query}
+              onQuery={setQuery}
+              onTagClick={setQuery}
+              title={selectedCategory}
+              onBack={() => setSelectedCategory('')}
+            />
+          )}
+          <div className={mobileDetailOpen ? 'mobile-detail-open' : ''}>
+            <ItemDetail
+              item={selectedItem}
+              locations={locations}
+              tags={tags}
+              categories={categoryNames}
+              onSave={updateItem}
+              onDelete={deleteItem}
+              onClose={() => setMobileDetailOpen(false)}
+            />
+          </div>
         </main>
       )}
 
       {page === 'search' && (
         <main>
-          <SearchView items={filteredItems} query={query} onQuery={setQuery} selectedId={selectedId} onSelect={setSelectedId} />
+          <SearchView items={items} categories={categoryNames} tags={tags} selectedId={selectedId} onSelect={setSelectedId} />
         </main>
       )}
 
@@ -234,6 +315,21 @@ export default function App() {
             onCreate={createCapability}
             onUpdate={updateCapability}
             onDelete={deleteCapability}
+          />
+        </main>
+      )}
+
+      {page === 'projects' && (
+        <main>
+          <ProjectsTracker
+            projects={projects}
+            items={items}
+            tags={tags}
+            selectedId={selectedProjectId}
+            onSelect={setSelectedProjectId}
+            onCreate={createProject}
+            onUpdate={updateProject}
+            onDelete={deleteProject}
           />
         </main>
       )}
