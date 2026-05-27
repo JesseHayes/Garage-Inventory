@@ -115,4 +115,4 @@ The sync button in the top-right shows:
 - `Offline`: the app cannot reach the network, and new edits will queue on this device.
 - `N pending sync`: that many local creates, edits, or deletes are waiting to upload to Supabase. Clicking it tries a manual sync.
 
-Keep regular JSON exports as backups, especially after working offline.
+Keep regular JSON exports as backups, especially after working offline.'
