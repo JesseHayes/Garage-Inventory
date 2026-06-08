@@ -3,11 +3,11 @@ const resistorUnits = ['ohm', '10 ohm', '100 ohm', 'k ohm', '10k ohm', '100k ohm
 
 function resistorValue(base, unit) {
   if (unit === 'ohm') return `${base} ohm`;
-  if (unit === '10 ohm') return `${Number(base) * 10} ohm`;
-  if (unit === '100 ohm') return `${Number(base) * 100} ohm`;
+  if (unit === '10 ohm') return `${Math.round(Number(base) * 10)} ohm`;
+  if (unit === '100 ohm') return `${Math.round(Number(base) * 100)} ohm`;
   if (unit === 'k ohm') return `${base}k ohm`;
-  if (unit === '10k ohm') return `${Number(base) * 10}k ohm`;
-  if (unit === '100k ohm') return `${Number(base) * 100}k ohm`;
+  if (unit === '10k ohm') return `${Math.round(Number(base) * 10)}k ohm`;
+  if (unit === '100k ohm') return `${Math.round(Number(base) * 100)}k ohm`;
   return `${base}M ohm`;
 }
 

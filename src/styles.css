@@ -202,7 +202,7 @@ main {
 
 .electronics-layout {
   display: grid;
-  grid-template-columns: minmax(220px, 280px) minmax(420px, 1fr) minmax(310px, 390px);
+  grid-template-columns: minmax(220px, 280px) minmax(420px, 1fr);
   gap: 14px;
   align-items: start;
 }
@@ -577,6 +577,22 @@ td span {
   gap: 8px;
 }
 
+.electronics-types {
+  grid-template-rows: auto minmax(0, 1fr);
+  max-height: calc(100vh - 96px);
+  overflow: hidden;
+  position: sticky;
+  top: 84px;
+}
+
+.electronics-type-list {
+  display: grid;
+  gap: 8px;
+  min-height: 0;
+  overflow: auto;
+  padding-right: 2px;
+}
+
 .location-row,
 .capability-card {
   display: flex;
@@ -629,13 +645,22 @@ td span {
 
 .component-row {
   display: grid;
-  grid-template-columns: 34px minmax(84px, auto) 1fr 34px;
+  grid-template-columns: 34px minmax(0, 1fr) minmax(74px, auto) 34px;
   align-items: center;
   gap: 8px;
   border: 1px solid #343b36;
   border-radius: 8px;
   padding: 8px;
   background: #1d211d;
+  min-width: 0;
+}
+
+.component-row strong {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .stock-button {
@@ -647,6 +672,7 @@ td span {
 .stock-state {
   font-size: 12px;
   font-weight: 800;
+  white-space: nowrap;
 }
 
 .stock-state.in {
@@ -655,6 +681,50 @@ td span {
 
 .stock-state.out {
   color: #f0b1aa;
+}
+
+.salvage-form {
+  border: 1px solid #343b36;
+  border-radius: 8px;
+  padding: 12px;
+  background: #1d211d;
+}
+
+.salvage-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  border: 1px solid #343b36;
+  border-radius: 8px;
+  padding: 10px;
+  background: #1d211d;
+}
+
+.salvage-main {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+}
+
+.salvage-main h3,
+.salvage-main p,
+.salvage-main span {
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.salvage-main span {
+  color: #aeb7ad;
+  font-size: 12px;
+}
+
+.salvage-actions {
+  display: grid;
+  justify-items: end;
+  align-content: start;
+  gap: 7px;
+  min-width: 120px;
 }
 
 .export-panel {
@@ -796,6 +866,24 @@ td span {
   }
 
   .capability-side {
+    justify-items: start;
+  }
+
+  .electronics-types {
+    position: static;
+    max-height: 42vh;
+  }
+
+  .component-row,
+  .salvage-card {
+    grid-template-columns: 1fr;
+  }
+
+  .component-row {
+    grid-template-columns: 44px minmax(0, 1fr) minmax(76px, auto) 44px;
+  }
+
+  .salvage-actions {
     justify-items: start;
   }
 
