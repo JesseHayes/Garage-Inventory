@@ -3,9 +3,10 @@
 1. Open the Supabase SQL editor.
 2. Run `supabase/migrations/001_initial_schema.sql`.
 3. Run `supabase/migrations/002_inventory_projects_ux.sql`.
-4. Create your user in Supabase Auth.
-5. Find your user's Auth UID.
-6. Authorize that user:
+4. Run `supabase/migrations/003_electronics_inventory.sql`.
+5. Create your user in Supabase Auth.
+6. Find your user's Auth UID.
+7. Authorize that user:
 
 ```sql
 insert into public.app_authorized_users (user_id)
@@ -20,6 +21,7 @@ Only authorized authenticated users can read or write inventory data. Row Level 
 - `tags`
 - `capability_upgrades`
 - `projects`
+- `electronics_inventory`
 
 GitHub Pages deploys only the PWA files. It does not run migrations or seed data, so future deployments will not overwrite database contents.
 
@@ -35,3 +37,20 @@ Run `002_inventory_projects_ux.sql` on any database created before the projects/
 - Creates `projects` with `created_at`, `updated_at`, state filtering fields, related tags/items, and RLS policies.
 
 The migration updates schema only. It does not delete inventory contents or seed replacement data.
+
+## Migration 003
+
+Run `003_electronics_inventory.sql` to add the dedicated electronics dictionary table. It stores common components as one JSON object:
+
+```json
+{
+  "Resistors": {
+    "10k ohm": true
+  },
+  "Ceramic Capacitors": {
+    "100nF": false
+  }
+}
+```
+
+This avoids creating hundreds of normal inventory rows for common component values. The migration is additive and does not alter existing inventory data.

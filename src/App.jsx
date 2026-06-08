@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { Boxes, Database, FolderKanban, Hammer, LogOut, Map, Search, Tags, Wrench } from 'lucide-react';
+import { Boxes, Cpu, Database, FolderKanban, Hammer, LogOut, Map as MapIcon, Search, Wrench } from 'lucide-react';
 import { api } from './lib/api.js';
 import { itemHaystack } from './lib/format.js';
 import QuickAddForm from './components/QuickAddForm.jsx';
@@ -9,16 +9,16 @@ import LocationManager from './components/LocationManager.jsx';
 import CapabilityTracker from './components/CapabilityTracker.jsx';
 import SearchView from './components/SearchView.jsx';
 import ImportExport from './components/ImportExport.jsx';
-import TagBrowser from './components/TagBrowser.jsx';
 import AuthGate from './components/AuthGate.jsx';
 import CategoryOverview from './components/CategoryOverview.jsx';
 import ProjectsTracker from './components/ProjectsTracker.jsx';
+import ElectronicsInventory from './components/ElectronicsInventory.jsx';
 
 const pages = [
   { id: 'inventory', label: 'Inventory', icon: Boxes },
+  { id: 'electronics', label: 'Electronics', icon: Cpu },
   { id: 'search', label: 'Search', icon: Search },
-  { id: 'tags', label: 'Tags', icon: Tags },
-  { id: 'storage', label: 'Storage', icon: Map },
+  { id: 'storage', label: 'Storage', icon: MapIcon },
   { id: 'capabilities', label: 'Capabilities', icon: Hammer },
   { id: 'projects', label: 'Projects', icon: FolderKanban },
   { id: 'export', label: 'JSON', icon: Database }
@@ -30,6 +30,8 @@ export default function App() {
   const [locations, setLocations] = useState([]);
   const [capabilities, setCapabilities] = useState([]);
   const [projects, setProjects] = useState([]);
+  const [electronics, setElectronics] = useState({});
+  const [salvagedComponents, setSalvagedComponents] = useState([]);
   const [tags, setTags] = useState([]);
   const [selectedId, setSelectedId] = useState('');
   const [selectedCapabilityId, setSelectedCapabilityId] = useState('');
@@ -48,6 +50,8 @@ export default function App() {
       setLocations(snapshot.locations);
       setCapabilities(snapshot.capabilities);
       setProjects(snapshot.projects);
+      setElectronics(snapshot.electronics);
+      setSalvagedComponents(snapshot.salvaged_components);
       setTags(snapshot.tags);
       setSelectedId((current) => current || snapshot.items[0]?.id || '');
       setSelectedCapabilityId((current) => current || snapshot.capabilities[0]?.id || '');
@@ -77,7 +81,7 @@ export default function App() {
   }, []);
 
   const categories = useMemo(() => {
-    const counts = new window.Map();
+    const counts = new Map();
     for (const item of items) {
       const category = item.category || 'Uncategorized';
       counts.set(category, (counts.get(category) || 0) + 1);
@@ -177,6 +181,12 @@ export default function App() {
     setSelectedProjectId('');
   }
 
+  async function updateElectronics(payload) {
+    const saved = await api.updateElectronics(payload);
+    setElectronics(saved.stock || payload.stock || {});
+    setSalvagedComponents(saved.salvaged_components || payload.salvaged_components || []);
+  }
+
   async function importAll(payload) {
     const result = await api.importAll(payload);
     await loadAll();
@@ -197,6 +207,8 @@ export default function App() {
     setLocations([]);
     setCapabilities([]);
     setProjects([]);
+    setElectronics({});
+    setSalvagedComponents([]);
     setTags([]);
   }
 
@@ -293,15 +305,15 @@ export default function App() {
         </main>
       )}
 
-      {page === 'storage' && (
+      {page === 'electronics' && (
         <main>
-          <LocationManager locations={locations} onCreate={createLocation} onDelete={deleteLocation} />
+          <ElectronicsInventory stock={electronics} salvagedComponents={salvagedComponents} onSave={updateElectronics} />
         </main>
       )}
 
-      {page === 'tags' && (
+      {page === 'storage' && (
         <main>
-          <TagBrowser tags={tags} activeTag={query} onSelectTag={setQuery} onCreateTag={createTag} />
+          <LocationManager locations={locations} onCreate={createLocation} onDelete={deleteLocation} />
         </main>
       )}
 

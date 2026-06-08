@@ -15,6 +15,7 @@ The app now uses Supabase PostgreSQL as the persistent database. GitHub Pages ho
 - Mobile-first responsive interface
 - Category-first inventory browsing
 - Projects, capabilities, storage, reusable tags, and flexible item attributes
+- Dedicated electronics dictionary for common values like resistors and capacitors
 - No image upload support
 
 ## Local Development
@@ -44,9 +45,10 @@ npm.cmd run dev
 1. In Supabase, open the SQL editor.
 2. Run `supabase/migrations/001_initial_schema.sql`.
 3. Run `supabase/migrations/002_inventory_projects_ux.sql`.
-4. Create your user in Supabase Auth.
-5. Copy your Auth user ID.
-6. Run:
+4. Run `supabase/migrations/003_electronics_inventory.sql`.
+5. Create your user in Supabase Auth.
+6. Copy your Auth user ID.
+7. Run:
 
 ```sql
 insert into public.app_authorized_users (user_id)
@@ -64,9 +66,10 @@ For an existing Supabase database that already has the first schema, run only:
 
 ```text
 supabase/migrations/002_inventory_projects_ux.sql
+supabase/migrations/003_electronics_inventory.sql
 ```
 
-This migration preserves existing inventory rows. It adds `in_stock`, makes `quantity` optional, moves old `base_type` values into `category` only when category is empty, removes `base_type`, and creates the `projects` table with RLS.
+These migrations preserve existing inventory rows. They add `in_stock`, make `quantity` optional, move old `base_type` values into `category` only when category is empty, remove `base_type`, create the `projects` table, and add the electronics component dictionary table with RLS.
 
 ## GitHub Pages Deployment
 

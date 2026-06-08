@@ -200,6 +200,13 @@ main {
   gap: 14px;
 }
 
+.electronics-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) minmax(420px, 1fr) minmax(310px, 390px);
+  gap: 14px;
+  align-items: start;
+}
+
 .panel {
   border: 1px solid #343b36;
   border-radius: 8px;
@@ -328,6 +335,11 @@ textarea:focus {
 .category-card span {
   color: #aeb7ad;
   font-size: 12px;
+}
+
+.category-card.selected {
+  border-color: #c98243;
+  background: #2c332d;
 }
 
 .dropdown-field {
@@ -558,7 +570,9 @@ td span {
 }
 
 .location-list,
-.capability-list {
+.capability-list,
+.electronics-types,
+.salvage-list {
   display: grid;
   gap: 8px;
 }
@@ -606,6 +620,43 @@ td span {
   align-items: center;
 }
 
+.component-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.component-row {
+  display: grid;
+  grid-template-columns: 34px minmax(84px, auto) 1fr 34px;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #343b36;
+  border-radius: 8px;
+  padding: 8px;
+  background: #1d211d;
+}
+
+.stock-button {
+  min-width: 34px;
+  min-height: 34px;
+  padding: 0;
+}
+
+.stock-state {
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.stock-state.in {
+  color: #9ed28f;
+}
+
+.stock-state.out {
+  color: #f0b1aa;
+}
+
 .export-panel {
   min-height: calc(100vh - 96px);
   display: grid;
@@ -645,6 +696,17 @@ td span {
   color: #ffd5cf;
 }
 
+.error-details {
+  max-height: 180px;
+  overflow: auto;
+  border: 1px solid #8f4239;
+  border-radius: 8px;
+  padding: 10px;
+  background: #171a18;
+  color: #ffd5cf;
+  white-space: pre-wrap;
+}
+
 @media (max-width: 1180px) {
   .inventory-layout {
     grid-template-columns: minmax(280px, 360px) 1fr;
@@ -671,7 +733,8 @@ td span {
 
   header,
   .inventory-layout,
-  .page-grid {
+  .page-grid,
+  .electronics-layout {
     display: grid;
     grid-template-columns: 1fr;
   }

@@ -1,4 +1,4 @@
-import { Download, Upload } from 'lucide-react';
+import { Clipboard, Download, Upload } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export default function ImportExport({ onExport, onImport }) {
@@ -20,8 +20,26 @@ export default function ImportExport({ onExport, onImport }) {
       const payload = JSON.parse(jsonText);
       const result = await onImport(payload);
       setMessage(
-        `Imported ${result.imported.inventory_items} items, ${result.imported.locations} locations, ${result.imported.capability_upgrades} upgrades, ${result.imported.projects || 0} projects, ${result.imported.tags || 0} tags.`
+        `Imported ${result.imported.inventory_items} items, ${result.imported.locations} locations, ${result.imported.capability_upgrades} upgrades, ${result.imported.projects || 0} projects, ${result.imported.electronics_component_types || 0} electronics groups, ${result.imported.tags || 0} tags.`
       );
+    } catch (error) {
+      setMessage(error.message);
+    }
+  }
+
+  async function copyJson() {
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(jsonText);
+      } else {
+        const textArea = document.createElement('textarea');
+        textArea.value = jsonText;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+      }
+      setMessage('JSON copied.');
     } catch (error) {
       setMessage(error.message);
     }
@@ -38,6 +56,10 @@ export default function ImportExport({ onExport, onImport }) {
           <button className="secondary" onClick={refreshExport}>
             <Download size={16} />
             Refresh
+          </button>
+          <button className="secondary" onClick={copyJson}>
+            <Clipboard size={16} />
+            Copy JSON
           </button>
           <button className="primary" onClick={importJson}>
             <Upload size={16} />

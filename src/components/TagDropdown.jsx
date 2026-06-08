@@ -2,10 +2,11 @@ import { Plus, X } from 'lucide-react';
 import { useMemo, useState } from 'react';
 import { normalizeTag } from '../lib/format.js';
 
-export default function TagDropdown({ label = 'Tags', value, onChange, tags }) {
+export default function TagDropdown({ label = 'Tags', value, onChange, tags = [] }) {
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
-  const selected = new Set((value || []).map(normalizeTag));
+  const selectedKeys = useMemo(() => (value || []).map(normalizeTag).sort().join('|'), [value]);
+  const selected = useMemo(() => new Set(selectedKeys ? selectedKeys.split('|') : []), [selectedKeys]);
   const needle = normalizeTag(query);
   const filtered = useMemo(
     () =>

@@ -30,6 +30,8 @@ function readCache() {
     tags: [],
     capabilities: [],
     projects: [],
+    electronics: {},
+    salvaged_components: [],
     ...readJson(CACHE_KEY, {})
   };
 }
@@ -168,6 +170,17 @@ function projectPayload(body, existing = {}) {
   };
 }
 
+function electronicsPayload(body, existing = {}) {
+  const now = nowIso();
+  return {
+    id: existing.id || body.id || 'common_components',
+    stock: body.stock || {},
+    salvaged_components: body.salvaged_components || [],
+    created_at: existing.created_at || now,
+    updated_at: now
+  };
+}
+
 function locationPayload(body, existing = {}) {
   const now = nowIso();
   return {
@@ -236,19 +249,23 @@ async function tryOnline(action, offlineAction) {
 }
 
 async function loadAllOnline() {
-  const [items, locations, tags, capabilities, projects] = await Promise.all([
+  const [items, locations, tags, capabilities, projects, electronicsRows] = await Promise.all([
     fetchAll('inventory_items'),
     fetchAll('locations', 'name.asc'),
     fetchAll('tags', 'use_count.desc'),
     fetchAll('capability_upgrades'),
-    fetchAll('projects')
+    fetchAll('projects'),
+    fetchAll('electronics_inventory').catch(() => [])
   ]);
+  const electronics = electronicsRows?.[0] || {};
   const cache = {
     items: items || [],
     locations: locations || [],
     tags: tags || [],
     capabilities: capabilities || [],
-    projects: projects || []
+    projects: projects || [],
+    electronics: electronics.stock || {},
+    salvaged_components: electronics.salvaged_components || []
   };
   writeCache(cache);
   return cache;
@@ -289,7 +306,9 @@ function cacheSnapshot() {
     })(),
     tags: cache.tags,
     capabilities: [...cache.capabilities].sort((a, b) => (b.updated_at || '').localeCompare(a.updated_at || '')),
-    projects: [...(cache.projects || [])].sort((a, b) => (b.updated_at || '').localeCompare(a.updated_at || ''))
+    projects: [...(cache.projects || [])].sort((a, b) => (b.updated_at || '').localeCompare(a.updated_at || '')),
+    electronics: cache.electronics || {},
+    salvaged_components: cache.salvaged_components || []
   };
 }
 
@@ -308,6 +327,13 @@ function deleteFromCache(collection, id) {
   const cache = readCache();
   cache[collection] = (cache[collection] || []).filter((item) => item.id !== id);
   refreshTagCache(cache);
+  writeCache(cache);
+}
+
+function updateElectronicsCache(row) {
+  const cache = readCache();
+  cache.electronics = row.stock || {};
+  cache.salvaged_components = row.salvaged_components || [];
   writeCache(cache);
 }
 
@@ -371,6 +397,31 @@ async function remove(table, collection, id) {
   );
 }
 
+async function upsertElectronics(row) {
+  updateElectronicsCache(row);
+  return tryOnline(
+    async () => {
+      const result = await supabaseFetch('electronics_inventory', {
+        method: 'POST',
+        query: '?on_conflict=id',
+        headers: { Prefer: 'resolution=merge-duplicates,return=representation' },
+        body: row
+      });
+      return result?.[0] || row;
+    },
+    () => {
+      enqueue({
+        table: 'electronics_inventory',
+        method: 'POST',
+        query: '?on_conflict=id',
+        headers: { Prefer: 'resolution=merge-duplicates,return=representation' },
+        body: row
+      });
+      return row;
+    }
+  );
+}
+
 window.addEventListener('online', () => {
   flushQueue().catch(() => {});
 });
@@ -430,6 +481,20 @@ export const api = {
   async projects() {
     return (await this.loadAll()).projects;
   },
+  async electronics() {
+    const snapshot = await this.loadAll();
+    return { stock: snapshot.electronics, salvaged_components: snapshot.salvaged_components };
+  },
+  async updateElectronics(payload) {
+    const cache = readCache();
+    const existing = {
+      id: 'common_components',
+      stock: cache.electronics || {},
+      salvaged_components: cache.salvaged_components || []
+    };
+    const row = electronicsPayload({ ...existing, ...payload }, existing);
+    return upsertElectronics(row);
+  },
   async createProject(payload) {
     return upsert('projects', 'projects', projectPayload(payload));
   },
@@ -467,7 +532,9 @@ export const api = {
       locations: cache.locations,
       tags: cache.tags,
       capability_upgrades: cache.capabilities,
-      projects: cache.projects || []
+      projects: cache.projects || [],
+      electronics_components: cache.electronics || {},
+      salvaged_components: cache.salvaged_components || []
     };
   },
   async importAll(payload) {
@@ -476,13 +543,16 @@ export const api = {
     const capabilities = payload.capability_upgrades || [];
     const projects = payload.projects || [];
     const tags = payload.tags || [];
-    const cache = { items, locations, capabilities, projects, tags };
+    const electronics = payload.electronics_components || {};
+    const salvagedComponents = payload.salvaged_components || [];
+    const cache = { items, locations, capabilities, projects, tags, electronics, salvaged_components: salvagedComponents };
     refreshTagCache(cache);
     writeCache(cache);
     for (const location of locations) await upsert('locations', 'locations', locationPayload(location, location));
     for (const item of items) await upsert('inventory_items', 'items', itemPayload(item, item));
     for (const capability of capabilities) await upsert('capability_upgrades', 'capabilities', capabilityPayload(capability, capability));
     for (const project of projects) await upsert('projects', 'projects', projectPayload(project, project));
+    await upsertElectronics(electronicsPayload({ stock: electronics, salvaged_components: salvagedComponents }));
     for (const tag of cache.tags) await upsert('tags', 'tags', tag);
     return {
       imported: {
@@ -490,6 +560,8 @@ export const api = {
         locations: locations.length,
         capability_upgrades: capabilities.length,
         projects: projects.length,
+        electronics_component_types: Object.keys(electronics).length,
+        salvaged_components: salvagedComponents.length,
         tags: cache.tags.length
       }
     };

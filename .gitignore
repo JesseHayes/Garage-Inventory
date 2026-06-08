@@ -7,3 +7,4 @@ scripts/
 data/
 .env
 .env.local
+.vs/

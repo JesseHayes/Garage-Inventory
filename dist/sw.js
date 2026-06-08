@@ -1,4 +1,4 @@
-const CACHE_NAME = 'garage-lab-inventory-v3';
+const CACHE_NAME = 'garage-lab-inventory-v4';
 const APP_SHELL = ['./', './index.html', './manifest.webmanifest'];
 
 self.addEventListener('install', (event) => {

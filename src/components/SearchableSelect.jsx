@@ -1,7 +1,7 @@
 import { Plus } from 'lucide-react';
 import { useMemo, useState } from 'react';
 
-export default function SearchableSelect({ label, value, onChange, options, placeholder = 'Search or create' }) {
+export default function SearchableSelect({ label, value, onChange, options = [], placeholder = 'Search or create' }) {
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
   const normalized = query.trim().toLowerCase();
